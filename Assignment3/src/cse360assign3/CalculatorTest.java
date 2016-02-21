@@ -90,9 +90,11 @@ public class CalculatorTest {
 	@Test
 	public void testGetHistory() {
 		Calculator myCalc = new Calculator();
-		myCalc.add(9);
-		myCalc.subtract(4);
-		assertEquals("", myCalc.getHistory()); // for now history just returns an empty string
+		myCalc.add(4);
+		myCalc.subtract(2);
+		myCalc.multiply(2);
+		myCalc.add(-5);
+		assertEquals("0 + 4 - 2 * 2 + -5", myCalc.getHistory()); // for now history just returns an empty string
 	}
 
 }

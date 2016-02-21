@@ -12,13 +12,15 @@ package cse360assign3;
 public class Calculator {
 
 	private int total;
+	private String history;
 	
 	/**
 	 * Constructor: 
-	 * Creates our calculator object with total variable initialized to 0.
+	 * Creates our calculator object with total variable initialized to 0 and history initialized to "0" string.
 	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		history = "0"; //initial value
 	}
 	
 	/**
@@ -31,35 +33,42 @@ public class Calculator {
 	}
 	
 	/**
-	 * add - adds the parameter to the total variable
+	 * add - adds the parameter to the total variable.
+	 * Keeps track of operation in history string variable.
 	 * 
 	 * @param value - The value to be added to our total
 	 */
 	public void add (int value) {
 		total = total + value;
+		history = history + " + " + value;
 	}
 	
 	/**
-	 * subtract - subtracts the parameter from the total variable
+	 * subtract - subtracts the parameter from the total variable.
+	 * Keeps track of operation in history string variable.
 	 * 
 	 * @param value - The value to be subtracted from the total variable
 	 */
 	public void subtract (int value) {
 		total = total - value;
+		history = history + " - " + value;
 	}
 	
 	/**
-	 * multiply - multiplies the total variable by the parameter given
+	 * multiply - multiplies the total variable by the parameter given.
+	 * Keeps track of operation in history string variable.
 	 * 
 	 * @param value - The value to be multiplied by
 	 */
 	public void multiply (int value) {
 		total = total * value;
+		history = history + " * " + value;
 	}
 	
 	/**
 	 * divide - divides the total variable by the given parameter. It uses integer division.
 	 * If the parameter is zero, then it sets total to zero, does not return an error message.
+	 * Keeps track of operation in history string variable.
 	 * 
 	 * @param value - The value to be divided by
 	 */
@@ -68,6 +77,7 @@ public class Calculator {
 			total = 0;
 		else
 			total = total / value;
+		history = history + " / " + value;
 	}
 	
 	/**
@@ -78,6 +88,6 @@ public class Calculator {
 	 * @return history - the string showing operations and values performed in order.
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
